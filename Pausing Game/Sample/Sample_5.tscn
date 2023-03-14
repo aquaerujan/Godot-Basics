@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhei3e2sgoj2c"]
+
+[ext_resource type="PackedScene" uid="uid://chye8meujyb8" path="res://wall.tscn" id="1_eg6qh"]
+[ext_resource type="PackedScene" uid="uid://bhgkd1umpokvr" path="res://menu.tscn" id="2_4e7id"]
+[ext_resource type="PackedScene" uid="uid://fmncuy24onsf" path="res://ball.tscn" id="3_u4ogc"]
+[ext_resource type="Texture2D" uid="uid://cr18vfc3aiox7" path="res://Assets/ship_0001.png" id="4_e125p"]
+[ext_resource type="AudioStream" uid="uid://l4lwahtmeoy" path="res://Assets/DST_TowerDefenseTheme.mp3" id="5_6q4n6"]
+
+[sub_resource type="Animation" id="Animation_uanif"]
+resource_name = "fly"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_vd2ir"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3cs0"]
+_data = {
+"RESET": SubResource("Animation_vd2ir"),
+"fly": SubResource("Animation_uanif")
+}
+
+[node name="Sample_5_anim_audio_particle" type="Node2D"]
+
+[node name="Wall" parent="." instance=ExtResource("1_eg6qh")]
+
+[node name="Menu" parent="." instance=ExtResource("2_4e7id")]
+
+[node name="Ball" parent="." instance=ExtResource("3_u4ogc")]
+position = Vector2(40, 280)
+
+[node name="Pivot" type="Marker2D" parent="Ball"]
+rotation = 6.28319
+
+[node name="Ship0001" type="Sprite2D" parent="Ball/Pivot"]
+position = Vector2(0, -50)
+rotation = 1.5708
+texture = ExtResource("4_e125p")
+metadata/_edit_group_ = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Ball/Pivot/Ship0001"]
+position = Vector2(-8, 8)
+local_coords = true
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Ball/Pivot/Ship0001"]
+position = Vector2(8, 8)
+local_coords = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ball"]
+autoplay = "fly"
+libraries = {
+"": SubResource("AnimationLibrary_p3cs0")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6q4n6")
+autoplay = true
+
+[editable path="Ball"]

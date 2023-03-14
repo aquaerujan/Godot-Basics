@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgl3syeratfkh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_elaca"]
+radius = 20.0
+
+[node name="Ball_Rigid" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_elaca")
+debug_color = Color(0.886275, 0.254902, 0.541176, 0.419608)
