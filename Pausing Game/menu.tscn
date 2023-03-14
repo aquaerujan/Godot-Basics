@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bhgkd1umpokvr"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pause_Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 80.0
+offset_bottom = 60.0
+text = "Pause"
+
+[node name="Play_Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 20.0
+offset_right = 160.0
+offset_bottom = 60.0
+text = "Play"
+
+[node name="State_Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 20.0
+offset_right = 240.0
+offset_bottom = 60.0
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
