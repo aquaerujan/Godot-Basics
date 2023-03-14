@@ -4,7 +4,6 @@
 radius = 20.0
 
 [node name="Ball" type="CharacterBody2D"]
-position = Vector2(40, 280)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fvin4")

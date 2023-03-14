@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://des5bafvwoawa"]
+
+[ext_resource type="PackedScene" uid="uid://chye8meujyb8" path="res://wall.tscn" id="1_ovbvc"]
+[ext_resource type="PackedScene" uid="uid://bhgkd1umpokvr" path="res://menu.tscn" id="2_8edws"]
+[ext_resource type="PackedScene" uid="uid://fmncuy24onsf" path="res://ball.tscn" id="3_vpxch"]
+
+[node name="Sample_3" type="Node2D"]
+
+[node name="Wall" parent="." instance=ExtResource("1_ovbvc")]
+
+[node name="Menu" parent="." instance=ExtResource("2_8edws")]
+
+[node name="Ball_Container" type="Node2D" parent="."]
+
+[node name="Ball_Inherit" parent="Ball_Container" instance=ExtResource("3_vpxch")]
+position = Vector2(40, 160)
+
+[node name="Ball_Pausable" parent="Ball_Container" instance=ExtResource("3_vpxch")]
+position = Vector2(40, 260)
+
+[node name="Ball_When_Pause" parent="Ball_Container" instance=ExtResource("3_vpxch")]
+position = Vector2(40, 360)
+
+[node name="Labels" type="Control" parent="Ball_Container"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Inherit" type="Label" parent="Ball_Container/Labels"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 100.0
+offset_right = 73.0
+offset_bottom = 126.0
+text = "Inherit"
+
+[node name="Pausable" type="Label" parent="Ball_Container/Labels"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 200.0
+offset_right = 91.0
+offset_bottom = 226.0
+text = "Pausable"
+
+[node name="When_Paused" type="Label" parent="Ball_Container/Labels"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 300.0
+offset_right = 126.0
+offset_bottom = 326.0
+text = "When Paused"
