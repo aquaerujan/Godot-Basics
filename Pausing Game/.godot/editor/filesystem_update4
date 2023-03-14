@@ -1,8 +1,11 @@
-res://game_level.tscn
 res://Sample/Sample_1.tscn
+res://ball.gd
 res://Sample/Sample_2.tscn
 res://Sample/Sample_3.tscn
 res://ball.tscn
 res://Sample/Sample_4.tscn
 res://Sample/Sample_5.tscn
 res://Sample/Sample_6.tscn
+res://ball_rigid.tscn
+res://menu.gd
+res://menu.tscn
