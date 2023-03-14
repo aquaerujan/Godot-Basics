@@ -14,6 +14,11 @@ config/name="Pausing Game"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=560
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
