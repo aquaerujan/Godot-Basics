@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://crss7m6vtfosj"]
+[gd_scene load_steps=5 format=3 uid="uid://crss7m6vtfosj"]
 
 [ext_resource type="PackedScene" uid="uid://chye8meujyb8" path="res://wall.tscn" id="1_7rv4x"]
+[ext_resource type="Script" path="res://Sample/Sample_4.gd" id="1_ckivt"]
 [ext_resource type="PackedScene" uid="uid://bhgkd1umpokvr" path="res://menu.tscn" id="2_ajqeh"]
 [ext_resource type="PackedScene" uid="uid://fmncuy24onsf" path="res://ball.tscn" id="3_mkcre"]
 
 [node name="Sample_4_signal" type="Node2D"]
+script = ExtResource("1_ckivt")
 
 [node name="Wall" parent="." instance=ExtResource("1_7rv4x")]
 
 [node name="Menu" parent="." instance=ExtResource("2_ajqeh")]
 
 [node name="Delete_Ball" type="Button" parent="Menu"]
+process_mode = 3
 layout_mode = 0
 offset_left = 260.0
 offset_top = 20.0
@@ -20,5 +23,7 @@ text = "Delete Ball"
 
 [node name="Ball" parent="." instance=ExtResource("3_mkcre")]
 position = Vector2(40, 280)
+
+[connection signal="button_down" from="Menu/Delete_Ball" to="." method="_on_delete_ball_button_down"]
 
 [editable path="Menu"]

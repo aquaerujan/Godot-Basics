@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca4xaweqefjs8"]
+
+[ext_resource type="PackedScene" uid="uid://chye8meujyb8" path="res://wall.tscn" id="1_l3g5h"]
+[ext_resource type="PackedScene" uid="uid://bhgkd1umpokvr" path="res://menu.tscn" id="2_tj7im"]
+[ext_resource type="PackedScene" uid="uid://fmncuy24onsf" path="res://ball.tscn" id="3_hfeci"]
+
+[node name="Sample_7_Conclusion" type="Node2D"]
+
+[node name="Wall" parent="." instance=ExtResource("1_l3g5h")]
+
+[node name="Menu" parent="." instance=ExtResource("2_tj7im")]
+
+[node name="Ball_Container" type="Node2D" parent="."]
+
+[node name="Ball_Inherit" parent="Ball_Container" instance=ExtResource("3_hfeci")]
+position = Vector2(48, 144)
+
+[node name="Ball_Pausable" parent="Ball_Container" instance=ExtResource("3_hfeci")]
+process_mode = 1
+position = Vector2(48, 224)
+
+[node name="Ball_When_Paused" parent="Ball_Container" instance=ExtResource("3_hfeci")]
+process_mode = 2
+position = Vector2(48, 304)
+
+[node name="Ball_Always" parent="Ball_Container" instance=ExtResource("3_hfeci")]
+process_mode = 3
+position = Vector2(48, 384)
+
+[node name="Ball_Disabled" parent="Ball_Container" instance=ExtResource("3_hfeci")]
+process_mode = 4
+position = Vector2(48, 464)
+
+[node name="Labels" type="Control" parent="Ball_Container"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Inherit" type="Label" parent="Ball_Container/Labels"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 96.0
+offset_right = 77.0
+offset_bottom = 122.0
+text = "Inherit"
+
+[node name="Pausable" type="Label" parent="Ball_Container/Labels"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 176.0
+offset_right = 95.0
+offset_bottom = 202.0
+text = "Pausable"
+
+[node name="When_Paused" type="Label" parent="Ball_Container/Labels"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 256.0
+offset_right = 130.0
+offset_bottom = 282.0
+text = "When Paused"
+
+[node name="Always" type="Label" parent="Ball_Container/Labels"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 336.0
+offset_right = 78.0
+offset_bottom = 362.0
+text = "Always"
+
+[node name="Disabled" type="Label" parent="Ball_Container/Labels"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 416.0
+offset_right = 91.0
+offset_bottom = 442.0
+text = "Disabled"

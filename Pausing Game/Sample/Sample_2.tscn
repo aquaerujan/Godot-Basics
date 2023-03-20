@@ -13,9 +13,11 @@
 [node name="Ball_Container" type="Node2D" parent="."]
 
 [node name="Ball_Always" parent="Ball_Container" instance=ExtResource("3_tsqia")]
+process_mode = 3
 position = Vector2(40, 160)
 
 [node name="Ball_Disabled" parent="Ball_Container" instance=ExtResource("3_tsqia")]
+process_mode = 4
 position = Vector2(40, 260)
 
 [node name="Labels" type="Control" parent="Ball_Container"]

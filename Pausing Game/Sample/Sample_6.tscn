@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ybacalyqojc0"]
+[gd_scene load_steps=7 format=3 uid="uid://ybacalyqojc0"]
 
 [ext_resource type="PackedScene" uid="uid://chye8meujyb8" path="res://wall.tscn" id="1_6jh1r"]
+[ext_resource type="Script" path="res://Sample/Sample_6.gd" id="1_uyh4a"]
 [ext_resource type="PackedScene" uid="uid://bhgkd1umpokvr" path="res://menu.tscn" id="2_k1i2a"]
 [ext_resource type="PackedScene" uid="uid://fmncuy24onsf" path="res://ball.tscn" id="3_i0eup"]
 [ext_resource type="PackedScene" uid="uid://bgl3syeratfkh" path="res://ball_rigid.tscn" id="4_tpwiq"]
@@ -9,12 +10,14 @@
 size = Vector2(100, 100)
 
 [node name="Sample_6_physics" type="Node2D"]
+script = ExtResource("1_uyh4a")
 
 [node name="Wall" parent="." instance=ExtResource("1_6jh1r")]
 
 [node name="Menu" parent="." instance=ExtResource("2_k1i2a")]
 
 [node name="Add_Impulse" type="Button" parent="Menu"]
+process_mode = 3
 layout_mode = 0
 offset_left = 260.0
 offset_top = 20.0
@@ -23,17 +26,23 @@ offset_bottom = 60.0
 text = "Add Impulse"
 
 [node name="Ball_Always" parent="." instance=ExtResource("3_i0eup")]
+process_mode = 4
 position = Vector2(64, 192)
 
 [node name="Ball_Rigid" parent="." instance=ExtResource("4_tpwiq")]
+process_mode = 3
 position = Vector2(64, 384)
 
 [node name="Detect_Ball" type="Area2D" parent="."]
+process_mode = 4
 position = Vector2(400, 192)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect_Ball"]
 shape = SubResource("RectangleShape2D_yv22o")
 debug_color = Color(0.239216, 0.635294, 0, 0.419608)
+
+[connection signal="button_down" from="Menu/Add_Impulse" to="." method="_on_add_impulse_button_down"]
+[connection signal="body_entered" from="Detect_Ball" to="." method="_on_detect_ball_body_entered"]
 
 [editable path="Menu"]

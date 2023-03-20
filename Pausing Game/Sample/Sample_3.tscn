@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://fmncuy24onsf" path="res://ball.tscn" id="3_vpxch"]
 
 [node name="Sample_3" type="Node2D"]
+process_mode = 3
 
 [node name="Wall" parent="." instance=ExtResource("1_ovbvc")]
 
@@ -16,9 +17,11 @@
 position = Vector2(40, 160)
 
 [node name="Ball_Pausable" parent="Ball_Container" instance=ExtResource("3_vpxch")]
+process_mode = 1
 position = Vector2(40, 260)
 
 [node name="Ball_When_Pause" parent="Ball_Container" instance=ExtResource("3_vpxch")]
+process_mode = 2
 position = Vector2(40, 360)
 
 [node name="Labels" type="Control" parent="Ball_Container"]

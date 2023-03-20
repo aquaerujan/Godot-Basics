@@ -10,5 +10,10 @@
 
 [node name="Menu" parent="." instance=ExtResource("2_4jrih")]
 
+[node name="Play_Button" parent="Menu" index="1"]
+process_mode = 2
+
 [node name="Ball" parent="." instance=ExtResource("3_6ro56")]
 position = Vector2(40, 280)
+
+[editable path="Menu"]

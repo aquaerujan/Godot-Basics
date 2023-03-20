@@ -9,3 +9,6 @@ res://Sample/Sample_6.tscn
 res://ball_rigid.tscn
 res://menu.gd
 res://menu.tscn
+res://Sample/Sample_4.gd
+res://Sample/Sample_6.gd
+res://Sample/Sample_7.tscn
